@@ -15,11 +15,16 @@ public class Homepage extends TestBase {
     public Homepage()  {
         PageFactory.initElements(driver,this);
     }
-    /*public String validatehomepagetitle(){
+    public String validateloginpagetitle(){
         return driver.getTitle();
     }
-    public LoginPage clickonMyaccountlink() throws Exception {
+    public LoginPage clickonlogin(){
         login_link.click();
         return new LoginPage();
-    }*/
+    }
+    public void clickonMyaccountlink()  {
+        myaccount_link.click();
+
+    }
+
 }
