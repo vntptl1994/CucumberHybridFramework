@@ -29,12 +29,12 @@ public class HomePageStepDef /*extends TestBase */{
     @And("select Login option")
     public void selectLoginOption() {
         loginPage=homepage.clickonlogin();
-
     }
 
     @Then("User is on Loginpage")
-    public void userIsOnLoginpage() {
-       String title= homepage.validateloginpagetitle();
+        public void userIsOnLoginpage() {
+        String title= loginPage.gettitle();
         Assert.assertEquals(title,"Account Login");
     }
+
 }
