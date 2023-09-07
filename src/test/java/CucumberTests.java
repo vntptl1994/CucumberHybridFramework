@@ -4,9 +4,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        //features = "src/test/resources/features/homepage.feature",
-       // glue= "src/test/java",
-       // dryRun = true
+        features = {"src/test/resources"},
+        glue= {"AppHooks","StepDefinitions"},
+        plugin = {"pretty",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+        }
 
         )
 public class CucumberTests {

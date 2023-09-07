@@ -1,29 +1,31 @@
 package com.qa.Pages;
 
-import com.qa.Base.TestBase;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
-public class Homepage extends TestBase {
-    @FindBy(linkText = "My Account")
-    WebElement myaccount_link;
+public class Homepage /*extends TestBase*/ {
+    WebDriver driver;
+    /*@FindBy(xpath = "//a[@title=\"My Account\"]//parent::*")
+    WebElement myaccount_link;*/
+    private By myaccountlink=By.xpath("//a[@title=\"My Account\"]//parent::*");
+    private By loginlink=By.linkText("Login");
 
-    @FindBy(linkText = "Login")
+   /* @FindBy(linkText = "Login")
     WebElement login_link;
-
-    public Homepage()  {
-        PageFactory.initElements(driver,this);
+*/
+    public Homepage(WebDriver driver)  {
+        this.driver=driver;
+        //PageFactory.initElements(driver,this);
     }
     public String validateloginpagetitle(){
         return driver.getTitle();
     }
     public LoginPage clickonlogin(){
-        login_link.click();
-        return new LoginPage();
+        driver.findElement(loginlink).click();
+        return new LoginPage(driver);
     }
     public void clickonMyaccountlink()  {
-        myaccount_link.click();
+        driver.findElement(myaccountlink).click();
 
     }
 
