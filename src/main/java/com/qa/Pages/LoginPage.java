@@ -7,10 +7,10 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage /*extends TestBase*/ {
     WebDriver driver;
-
-    private By emailId=By.id("input-email");
-    private By pwd=By.id("input-password");
+    private By emailId=By.xpath("//*[@id=\"input-email\"]");
+    private By pwd=By.xpath("//*[@id=\"input-password\"]");
     private By loginbutton=By.xpath("//input[@type='submit']");
+    private By errormessage=By.xpath("//div[@class='alert alert-danger alert-dismissible']");
 
 
 
@@ -29,6 +29,10 @@ public class LoginPage /*extends TestBase*/ {
     public Homepage clicklogin(){
         driver.findElement(loginbutton).click();
         return new Homepage(driver);
+    }
+    public String getmessage(){
+        String message=driver.findElement(errormessage).getText();
+        return message;
     }
 
 }

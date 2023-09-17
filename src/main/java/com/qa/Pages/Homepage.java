@@ -17,7 +17,7 @@ public class Homepage /*extends TestBase*/ {
         this.driver=driver;
         //PageFactory.initElements(driver,this);
     }
-    public String validateloginpagetitle(){
+    public String validatepagetitle(){
         return driver.getTitle();
     }
     public LoginPage clickonlogin(){
@@ -28,5 +28,7 @@ public class Homepage /*extends TestBase*/ {
         driver.findElement(myaccountlink).click();
 
     }
+
+
 
 }
